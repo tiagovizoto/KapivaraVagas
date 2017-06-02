@@ -9,12 +9,13 @@
           <div class="card-content">
             <div class="content">
               <p class="subtitle">
-                {{ j.title }} - {{ j.location }}
+                <a @click="recentJob()"></a>{{ j.title }} - {{ j.location }}
               </p>
               {{ j.description }}
               <br>
               <small>11:09 PM - 1 Jan 2016</small>
             </div>
+
           </div>
         </div>
       </div>
@@ -23,6 +24,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'CcRecentsJobs',
   data () {
@@ -36,14 +39,10 @@ export default {
       ]
     }
   },
-  methods: {
-    recentJob: axios.get('/user?ID=12345')
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+  created () {
+    axios.get('http://127.0.0.1:5000/jobs/').then((response) => {
+      console.log(response)
+    })
   }
 }
 </script>

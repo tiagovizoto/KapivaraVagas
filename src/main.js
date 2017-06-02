@@ -5,11 +5,15 @@ import 'buefy/lib/buefy.css'
 import VueRouter from 'vue-router'
 import CcNewJob from './components/job/CcNewJob.vue'
 import Jobs from './components/job/Jobs.vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 import CcRecentsJobs from './components/index/CcRecentsJobs.vue'
 
 Vue.use(Buefy)
 Vue.use(VueRouter)
+Vue.use(VueAxios, axios)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
